@@ -82,7 +82,8 @@
     NSParameterAssert(image != nil);
     
     UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
-    imageViewMask.frame = CGRectInset(view.frame, 2.0f, 2.0f);
+    imageViewMask.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width+1, view.frame.size.height+1);
+    //imageViewMask.frame = CGRectInset(view.frame, -1.0f, -1.0f);
     
     view.layer.mask = imageViewMask.layer;
 }

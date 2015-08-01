@@ -442,10 +442,12 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     
     CGSize finalSize = CGSizeZero;
     
-    if ([messageItem isMediaMessage]) {
+    if ([messageItem isMediaMessage])
+    {
         finalSize = [[messageItem media] mediaViewDisplaySize];
     }
-    else {
+    else
+    {
         CGSize avatarSize = [self jsq_avatarSizeForIndexPath:indexPath];
         
         //  from the cell xibs, there is a 2 point space between avatar and bubble
@@ -455,6 +457,9 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
         
         CGFloat horizontalInsetsTotal = horizontalContainerInsets + horizontalFrameInsets + spacingBetweenAvatarAndBubble;
         CGFloat maximumTextWidth = self.itemWidth - avatarSize.width - self.messageBubbleLeftRightMargin - horizontalInsetsTotal;
+        
+        if ([messageItem isAttachedToMediaMessage])
+            maximumTextWidth = [messageItem attachedMediaViewDisplaySize].width;
         
         CGRect stringRect = [[messageItem text] boundingRectWithSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)
                                                              options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
@@ -472,6 +477,9 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
         
         //  same as above, an extra 2 points of magix
         CGFloat finalWidth = MAX(stringSize.width + horizontalInsetsTotal, self.bubbleImageAssetWidth) + 2.0f;
+        
+        if ([messageItem isAttachedToMediaMessage])
+            finalWidth = maximumTextWidth;
         
         finalSize = CGSizeMake(finalWidth, stringSize.height + verticalInsets);
     }

@@ -62,6 +62,27 @@
 - (NSDate *)date;
 
 /**
+ *  This method returns the size of the attached media view.
+ *
+ *  @return The size of the attached media view.
+ */
+- (CGSize)attachedMediaViewDisplaySize;
+
+/**
+ *  This method returns whether or not the message is attached to a text message.
+ *
+ *  @return Whether or not the message is attached to a text message.
+ */
+- (BOOL)isAttachedToTextMessage;
+
+/**
+ *  This method returns whether or not the message is attached to a media message.
+ *
+ *  @return Whether or not the message is attached to a media message.
+ */
+- (BOOL)isAttachedToMediaMessage;
+
+/**
  *  This method is used to determine if the message data item contains text or media.
  *  If this method returns `YES`, an instance of `JSQMessagesViewController` will ignore 
  *  the `text` method of this protocol when dequeuing a `JSQMessagesCollectionViewCell`
