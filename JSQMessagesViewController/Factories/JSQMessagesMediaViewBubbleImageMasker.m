@@ -82,8 +82,10 @@
     NSParameterAssert(image != nil);
     
     UIImageView *imageViewMask = [[UIImageView alloc] initWithImage:image];
-    imageViewMask.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width+1, view.frame.size.height+1);
-    //imageViewMask.frame = CGRectInset(view.frame, -1.0f, -1.0f);
+    
+    // There seems to be an issue when creating a mask on screens with an uneven amount of pt in the width
+    CGFloat addition = (((NSInteger)[UIScreen mainScreen].bounds.size.width) % 2 > 0) ? 1 : 0;
+    imageViewMask.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width+addition, view.frame.size.height+1);
     
     view.layer.mask = imageViewMask.layer;
 }
