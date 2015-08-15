@@ -121,6 +121,21 @@
     return self.hash;
 }
 
+-(CGSize)attachedMediaViewDisplaySize
+{
+    return CGSizeZero;
+}
+
+-(BOOL)isAttachedToMediaMessage
+{
+    return NO;
+}
+
+-(BOOL)isAttachedToTextMessage
+{
+    return NO;
+}
+
 #pragma mark - NSObject
 
 - (BOOL)isEqual:(id)object

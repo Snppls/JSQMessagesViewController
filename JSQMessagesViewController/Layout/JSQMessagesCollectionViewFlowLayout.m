@@ -486,12 +486,6 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     
     [self.messageBubbleCache setObject:[NSValue valueWithCGSize:finalSize] forKey:@([messageItem messageHash])];
     
-    
-    if (CGSizeEqualToSize(finalSize, CGSizeZero))
-    {
-        int i = 0;
-    }
-    
     return finalSize;
 }
 
