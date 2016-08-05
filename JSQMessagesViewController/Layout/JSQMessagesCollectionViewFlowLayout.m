@@ -444,7 +444,7 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     
     if ([messageItem isMediaMessage])
     {
-        finalSize = [[messageItem media] mediaViewDisplaySize];
+        finalSize = [[messageItem media] mediaViewDisplaySizeForContainerSize:self.collectionView.frame.size];
     }
     else
     {
@@ -459,7 +459,7 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
         CGFloat maximumTextWidth = self.itemWidth - avatarSize.width - self.messageBubbleLeftRightMargin - horizontalInsetsTotal;
         
         if ([messageItem isAttachedToMediaMessage])
-            maximumTextWidth = [messageItem attachedMediaViewDisplaySize].width;
+            maximumTextWidth = [messageItem attachedmediaViewDisplaySizeForContainerSize:self.collectionView.frame.size].width;
         
         CGRect stringRect = [[messageItem text] boundingRectWithSize:CGSizeMake(maximumTextWidth, CGFLOAT_MAX)
                                                              options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)

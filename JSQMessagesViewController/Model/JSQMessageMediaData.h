@@ -54,7 +54,7 @@
  *
  *  @warning You must return a size with non-zero, positive width and height values.
  */
-- (CGSize)mediaViewDisplaySize;
+- (CGSize)mediaViewDisplaySizeForContainerSize:(CGSize)size;
 
 /**
  *  @return A placeholder media view to be displayed if mediaView is not yet available, or `nil`.

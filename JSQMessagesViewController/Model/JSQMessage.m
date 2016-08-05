@@ -121,7 +121,7 @@
     return self.hash;
 }
 
--(CGSize)attachedMediaViewDisplaySize
+-(CGSize)attachedmediaViewDisplaySizeForContainerSize:(CGSize)size
 {
     return CGSizeZero;
 }

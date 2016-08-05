@@ -64,7 +64,7 @@
 {
     JSQPhotoMediaItem *item = [[JSQPhotoMediaItem alloc] initWithImage:nil];
     
-    XCTAssertTrue(!CGSizeEqualToSize([item mediaViewDisplaySize], CGSizeZero));
+    XCTAssertTrue(!CGSizeEqualToSize([item mediaViewDisplaySizeForContainerSize:CGSizeZero], CGSizeZero));
     XCTAssertNotNil([item mediaPlaceholderView]);
     XCTAssertNil([item mediaView], @"Media view should be nil if image is nil");
     

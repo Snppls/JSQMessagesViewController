@@ -87,7 +87,7 @@
     }
     
     if (self.cachedVideoImageView == nil) {
-        CGSize size = [self mediaViewDisplaySize];
+        CGSize size = [self mediaViewDisplaySizeForContainerSize:(CGSize)size];
         UIImage *playIcon = [[UIImage jsq_defaultPlayImage] jsq_imageMaskedWithColor:[UIColor lightGrayColor]];
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:playIcon];

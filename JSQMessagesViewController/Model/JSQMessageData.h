@@ -66,7 +66,7 @@
  *
  *  @return The size of the attached media view.
  */
-- (CGSize)attachedMediaViewDisplaySize;
+- (CGSize)attachedmediaViewDisplaySizeForContainerSize:(CGSize)size;
 
 /**
  *  This method returns whether or not the message is attached to a text message.

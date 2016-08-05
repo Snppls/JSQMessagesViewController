@@ -105,7 +105,7 @@
     
     MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
     options.region = region;
-    options.size = [self mediaViewDisplaySize];
+    options.size = [self mediaViewDisplaySizeForContainerSize:CGSizeZero];
     options.scale = [UIScreen mainScreen].scale;
     
     MKMapSnapshotter *snapShotter = [[MKMapSnapshotter alloc] initWithOptions:options];

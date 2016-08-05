@@ -84,7 +84,7 @@
     return nil;
 }
 
-- (CGSize)mediaViewDisplaySize
+- (CGSize)mediaViewDisplaySizeForContainerSize:(CGSize)size
 {
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         return CGSizeMake(315.0f, 225.0f);
@@ -96,7 +96,7 @@
 - (UIView *)mediaPlaceholderView
 {
     if (self.cachedPlaceholderView == nil) {
-        CGSize size = [self mediaViewDisplaySize];
+        CGSize size = [self mediaViewDisplaySizeForContainerSize:(CGSize)size];
         UIView *view = [JSQMessagesMediaPlaceholderView viewWithActivityIndicator];
         view.frame = CGRectMake(0.0f, 0.0f, size.width, size.height);
         [JSQMessagesMediaViewBubbleImageMasker applyBubbleImageMaskToMediaView:view isOutgoing:self.appliesMediaViewMaskAsOutgoing];

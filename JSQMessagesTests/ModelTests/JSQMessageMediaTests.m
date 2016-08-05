@@ -23,7 +23,7 @@
 
 - (UIView *)mediaView { return [UIView new]; }
 - (UIView *)mediaPlaceholderView { return [self mediaView]; }
-- (CGSize)mediaViewDisplaySize { return CGSizeMake(50, 50); }
+- (CGSize)mediaViewDisplaySizeForContainerSize:(CGSize)size { return CGSizeMake(50, 50); }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder { }
 - (id)initWithCoder:(NSCoder *)aDecoder { return [self init]; }
