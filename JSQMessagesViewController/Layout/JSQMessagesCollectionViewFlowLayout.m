@@ -482,7 +482,7 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
             finalWidth = maximumTextWidth;
         
         finalSize = CGSizeMake(finalWidth, stringSize.height + verticalInsets);
-    }
+        }
     
     [self.messageBubbleCache setObject:[NSValue valueWithCGSize:finalSize] forKey:@([messageItem messageHash])];
     
@@ -494,7 +494,9 @@ const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
     CGSize messageBubbleSize = [self messageBubbleSizeForItemAtIndexPath:indexPath];
     JSQMessagesCollectionViewLayoutAttributes *attributes = (JSQMessagesCollectionViewLayoutAttributes *)[self layoutAttributesForItemAtIndexPath:indexPath];
     
-    CGFloat finalHeight = messageBubbleSize.height;
+    CGSize avatarSize = [self jsq_avatarSizeForIndexPath:indexPath];
+    
+    CGFloat finalHeight = MAX(avatarSize.height, messageBubbleSize.height);
     finalHeight += attributes.cellTopLabelHeight;
     finalHeight += attributes.messageBubbleTopLabelHeight;
     finalHeight += attributes.cellBottomLabelHeight;
